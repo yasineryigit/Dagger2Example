@@ -1,14 +1,15 @@
 package com.ossovita.dagger2example;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.os.Bundle;
 
 import com.ossovita.dagger2example.car.Car;
 import com.ossovita.dagger2example.car.Engine;
-import com.ossovita.dagger2example.dagger.CarComponent;
-import com.ossovita.dagger2example.dagger.DaggerCarComponent;
-import com.ossovita.dagger2example.dagger.DieselEngineModule;
+import com.ossovita.dagger2example.dagger.ActivityComponent;
+import com.ossovita.dagger2example.dagger.DaggerActivityComponent;
+import com.ossovita.dagger2example.dagger.DaggerAppComponent;
 
 import javax.inject.Inject;
 
@@ -22,10 +23,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CarComponent component = DaggerCarComponent.builder()
+        ActivityComponent component = DaggerActivityComponent.builder()
                 .horsePower(150)
                 .engineCapacity(1400)
+                .appComponent(((ExampleApp) getApplication()).getAppComponent())
                 .build();
+
+        //component.inject(this);
 
         car1.drive();
         car2.drive();
