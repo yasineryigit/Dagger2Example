@@ -5,6 +5,7 @@ import android.app.Application;
 import com.ossovita.dagger2example.dagger.ActivityComponent;
 import com.ossovita.dagger2example.dagger.AppComponent;
 import com.ossovita.dagger2example.dagger.DaggerAppComponent;
+import com.ossovita.dagger2example.dagger.DriverModule;
 
 public class ExampleApp extends Application {
     private AppComponent component;
@@ -13,7 +14,7 @@ public class ExampleApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        component = DaggerAppComponent.create();
+        component = DaggerAppComponent.factory().create(new DriverModule("Hans"));
 
     }
 
