@@ -8,8 +8,8 @@ import android.os.Bundle;
 import com.ossovita.dagger2example.car.Car;
 import com.ossovita.dagger2example.car.Engine;
 import com.ossovita.dagger2example.dagger.ActivityComponent;
-import com.ossovita.dagger2example.dagger.DaggerActivityComponent;
 import com.ossovita.dagger2example.dagger.DaggerAppComponent;
+import com.ossovita.dagger2example.dagger.DieselEngineModule;
 
 import javax.inject.Inject;
 
@@ -23,12 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ActivityComponent component = DaggerActivityComponent.builder()
-                .horsePower(150)
-                .engineCapacity(1400)
-                .appComponent(((ExampleApp) getApplication()).getAppComponent())
-                .build();
-
+        ActivityComponent component = ((ExampleApp) getApplication()).getAppComponent().getActivityComponent(new DieselEngineModule(120));
         //component.inject(this);
 
         car1.drive();
