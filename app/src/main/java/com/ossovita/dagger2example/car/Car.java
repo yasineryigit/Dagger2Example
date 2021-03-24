@@ -1,4 +1,4 @@
-package com.ossovita.dagger2example;
+package com.ossovita.dagger2example.car;
 
 import android.util.Log;
 
@@ -11,7 +11,8 @@ public class Car {
     private Wheels wheels;
 
     @Inject
-    public Car( Wheels wheels) {
+    public Car(Engine engine, Wheels wheels) {
+        this.engine=engine;
         this.wheels = wheels;
     }
 
@@ -21,6 +22,7 @@ public class Car {
     }
 
     public void drive(){
+        engine.start();
         Log.d(TAG, "driving.. ");
     }
 

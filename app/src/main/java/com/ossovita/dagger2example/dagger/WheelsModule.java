@@ -1,4 +1,8 @@
-package com.ossovita.dagger2example;
+package com.ossovita.dagger2example.dagger;
+
+import com.ossovita.dagger2example.car.Rims;
+import com.ossovita.dagger2example.car.Tires;
+import com.ossovita.dagger2example.car.Wheels;
 
 import dagger.Module;
 import dagger.Provides;
@@ -19,7 +23,7 @@ public class WheelsModule {
     }
 
     @Provides
-    static Wheels provideWheels(Rims rims,Tires tires){
+    static Wheels provideWheels(Rims rims, Tires tires){
         return new Wheels(rims,tires);
     }
 }
