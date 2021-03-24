@@ -4,6 +4,8 @@ import com.ossovita.dagger2example.car.Rims;
 import com.ossovita.dagger2example.car.Tires;
 import com.ossovita.dagger2example.car.Wheels;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -14,6 +16,7 @@ public abstract class WheelsModule {
     static Rims provideRims(){
         return new Rims();
     }
+
 
     @Provides
     static Tires provideTires(){

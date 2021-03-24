@@ -14,7 +14,7 @@ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
     @Inject
-    Car car; //Burada @Inject dediğimiz zaman car objesini tanımla diyoruz.
+    Car car1,car2; //Burada @Inject dediğimiz zaman car objesini tanımla diyoruz.
     @Inject
     Engine engine;
     @Override
@@ -26,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
                 .horsePower(150)
                 .engineCapacity(1400)
                 .build();
-        component.inject(this);
+
+        car1.drive();
+        car2.drive();
 
     }
 }
